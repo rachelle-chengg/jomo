@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --content-pad: clamp(1.25rem, 5vw, 4rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: theme("colors.cream");
+  color: theme("colors.ink");
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Anchor offset so sticky nav doesn't cover section headings */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-content px-[var(--content-pad)];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 ease-out;
+  }
+  .btn-primary {
+    @apply btn bg-clay text-cream hover:bg-ink hover:-translate-y-0.5 shadow-sm hover:shadow-md;
+  }
+  .btn-ghost {
+    @apply btn border border-ink/20 text-ink hover:border-ink hover:-translate-y-0.5;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-clay;
+  }
+}
